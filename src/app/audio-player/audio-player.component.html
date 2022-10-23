@@ -1,0 +1,46 @@
+<div class="top-container container">
+    <section class="heading-buttons">
+        <span mat-ripple style="width: 2em; height: 2em;border-radius: 50%;">
+            <mat-icon style="width: 100%; border-radius: 50%;" class="shadow">
+                keyboard_arrow_left</mat-icon>
+        </span>
+        <span mat-ripple style="width: 2em; height: 2em;border-radius: 50%;">
+            <mat-icon style="width: 100%; border-radius: 50%;" class="shadow">more_horiz
+            </mat-icon>
+        </span>
+    </section>
+</div>
+<div class="bottom-container container">
+    <section class="info">
+        <h3>audio name</h3>
+        <h5>author name</h5>
+    </section>
+    <section class="controllers">
+        <audio src="/assets/rain.mp3" [loop]="false" #audioSrc></audio>
+        <div class="track">
+            <mat-slider #slider [value]="sliderValue" (input)="seekTo(audioSrc, slider)" [min]="1" max="100">
+            </mat-slider>
+        </div>
+        <div class="buttons">
+            <span (click)="toggleLoop(audioSrc)" [style.opacity]="loop ? '1' : '0.4'" matRipple
+                style="display: inline-block; border-radius: 50%;">
+                <mat-icon>repeat</mat-icon>
+            </span>
+            <span matRipple style="display: inline-block; border-radius: 50%;">
+                <mat-icon>skip_previous</mat-icon>
+            </span>
+            <span (click)="togglePlay(audioSrc)" matRipple style="display: inline-block; border-radius: 50%;">
+                <mat-icon *ngIf="audioIsPlaying" style="font-size: 5em; color: #935f65; width: 100%;">play_circle
+                </mat-icon>
+                <mat-icon *ngIf="!audioIsPlaying" style="font-size: 5em; color: #935f65; width: 100%;">pause_circle
+                </mat-icon>
+            </span>
+            <span matRipple style="display: inline-block; border-radius: 50%;">
+                <mat-icon>skip_next</mat-icon>
+            </span>
+            <span matRipple (click)="addToFavorite()" style="display: inline-block; border-radius: 50%;">
+                <mat-icon [style.color]="favorited ? 'red' : 'white'">favorite</mat-icon>
+            </span>
+        </div>
+    </section>
+</div>

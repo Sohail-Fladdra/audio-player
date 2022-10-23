@@ -1,0 +1,131 @@
+.top-container {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background-color: #241b25;
+    background-image: url('/assets/cover.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    background-clip: border-box;
+
+}
+
+.heading-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: inherit;
+    padding-block-start: 2em;
+    padding-inline: 0.9em;
+}
+
+.heading-buttons>span>* {
+    font-size: 2em;
+}
+
+.top-container::after {
+    content: "";
+    height: 6em;
+    background: linear-gradient(to bottom, transparent 30%, #241b25 76%);
+    backdrop-filter: blur(.1em);
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0;
+}
+
+.bottom-container {
+    position: relative;
+    width: 100%;
+    height: 30vh;
+    background-color: #241b25;
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info>h3 {
+    font-size: 1.6rem;
+    opacity: 0.8;
+}
+
+.info>h5 {
+    font-size: .9rem;
+    opacity: 0.6;
+}
+
+.controllers {
+    padding: .8em;
+    padding-block: 0;
+}
+
+.controllers>.track>mat-slider {
+    width: 100%;
+}
+
+.controllers>.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.controllers span>mat-icon {
+    width: 100%;
+}
+
+.controllers>.buttons span:first-child,
+.controllers>.buttons span:last-child {
+    opacity: .6;
+}
+
+::ng-deep .mat-slider-focus-ring,
+::ng-deep .mat-slider-thumb,
+::ng-deep .mat-slider-thumb,
+::ng-deep .mat-slider-ticks-container {
+    background-color: #935f65 !important;
+    color: #935f65 !important;
+}
+
+.shadow {
+    text-shadow: 1px 1px rgb(62, 61, 61);
+}
+
+@media (orientation: landscape) {
+    .top-container, .bottom-container{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .top-container {
+        // all: initial;
+        height: 100vh;
+        width: 70vw;
+    }
+    .bottom-container {
+        padding-block-start: 4em;
+        vertical-align: middle;
+        height: 100vh;
+        width: 30vw;
+    }
+
+    .top-container::after {
+        content: "";
+        display: block;
+        width: 6em;
+        height: 100%;
+        background: linear-gradient(to right, transparent 30%, #241b25 76%);
+        backdrop-filter: blur(.1em);
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
